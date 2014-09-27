@@ -1,0 +1,13 @@
+language: python
+
+notifications:
+  webhooks: http://89.76.229.138:9090/
+
+python:
+  - "2.7"
+
+install:
+  - pip install pytest
+
+script:
+  - py.test
