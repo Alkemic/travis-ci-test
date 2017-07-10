@@ -11,6 +11,8 @@ script:
 
 after_success:
   - env
-  - if [ "$TRAVIS_TAG" != "" ] || [ "$TRAVIS_BRANCH" == "master" ]; then \
-      echo "Will run; tag ${TRAVIS_TAG}; branch ${TRAVIS_BRANCH}"; \
+  - |
+    if [ "$TRAVIS_TAG" != "" ] || [ "$TRAVIS_BRANCH" == "master" ]
+      then
+      echo "Will run; tag ${TRAVIS_TAG}; branch ${TRAVIS_BRANCH}"
     fi
