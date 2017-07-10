@@ -11,5 +11,6 @@ script:
 
 after_success:
   - env
-  - if [ "$TRAVIS_TAG" != "" ] || [ "$TRAVIS_BRANCH" == "master" ]; then echo "Will run; tag ${TRAVIS_TAG}; branch ${TRAVIS_BRANCH}"; fi
-  - docker login -u testadasdasd -p $TEST_VAR
+  - if [ "$TRAVIS_TAG" != "" ] || [ "$TRAVIS_BRANCH" == "master" ]; then \
+      echo "Will run; tag ${TRAVIS_TAG}; branch ${TRAVIS_BRANCH}"; \
+    fi
