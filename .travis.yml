@@ -13,6 +13,12 @@ after_success:
   - env
   - |
     if [ "$TRAVIS_TAG" != "" ] || [ "$TRAVIS_BRANCH" == "master" ]
+    then
+      if [ "$TRAVIS_TAG" != "" ] && [[ $TRAVIS_TAG =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]
       then
-      echo "Will run; tag ${TRAVIS_TAG}; branch ${TRAVIS_BRANCH}"
+        revs=( ${TRAVIS_TAG//./ } )
+        echo docker push example/test:${revs[0]}.${revs[1]}.${revs[2]}
+        echo docker push example/test:${revs[0]}.${revs[1]}
+        echo docker push example/test:${revs[0]}
+      fi
     fi
